@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=whatschanged'
+      - 'POSTGRES_PASSWORD=secret'
+      - 'POSTGRES_USER=myuser'
+    ports:
+      - '35432:5432'
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+    restart:  unless-stopped
+
+volumes:
+  postgres:
