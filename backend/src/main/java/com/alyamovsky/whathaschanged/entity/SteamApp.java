@@ -5,7 +5,7 @@ import lombok.Getter;
 
 import java.util.UUID;
 
-@Entity
+@Entity(name = "steam_apps")
 public class SteamApp {
 
     @Id
