@@ -16,5 +16,7 @@ spring:
   ai:
     openai:
       api-key: ${OPENAI_API_KEY}
-
+  shell:
+    interactive:
+      enabled: true
 debug: true

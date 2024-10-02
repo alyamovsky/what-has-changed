@@ -29,6 +29,7 @@ repositories {
 
 ext {
     set('springAiVersion', "1.0.0-M1")
+    set('springShellVersion', "3.3.3")
 }
 
 dependencies {
@@ -50,14 +51,21 @@ dependencies {
     liquibaseRuntime 'org.liquibase:liquibase-core'
     liquibaseRuntime 'org.postgresql:postgresql'
     implementation 'me.paulschwarz:spring-dotenv:4.0.0'
+    implementation 'org.springframework.shell:spring-shell-starter'
+    testImplementation 'org.springframework.shell:spring-shell-starter-test'
 }
 
 dependencyManagement {
     imports {
         mavenBom "org.springframework.ai:spring-ai-bom:${springAiVersion}"
+        mavenBom "org.springframework.shell:spring-shell-dependencies:${springShellVersion}"
     }
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+bootRun {
+    systemProperties = System.properties as Map<String, ?>
 }
