@@ -62,10 +62,13 @@ dependencyManagement {
     }
 }
 
-tasks.named('test') {
+test {
     useJUnitPlatform()
+    testLogging.showStandardStreams = true
+    workingDir = project.rootDir
 }
 
 bootRun {
     systemProperties = System.properties as Map<String, ?>
+    standardInput = System.in
 }
