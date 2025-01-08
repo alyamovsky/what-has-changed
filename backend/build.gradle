@@ -88,3 +88,7 @@ liquibase {
         }
     }
 }
+
+dependencyLocking {
+    lockAllConfigurations()
+}
