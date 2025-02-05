@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface SteamAppRepository extends JpaRepository<SteamApp, UUID> {
@@ -23,4 +24,9 @@ public interface SteamAppRepository extends JpaRepository<SteamApp, UUID> {
             WHERE steam_apps.name IS DISTINCT FROM EXCLUDED.name
             """, nativeQuery = true)
     void saveOrUpdate(@Param("app_id") Integer appId, @Param("name") String name);
+
+    @Query("""
+            SELECT app FROM steam_apps app WHERE app.name ILIKE CONCAT('%', :namePart, '%')
+            """)
+    List<SteamApp> findByNameContainingIgnoreCase(@Param("namePart") String namePart);
 }
