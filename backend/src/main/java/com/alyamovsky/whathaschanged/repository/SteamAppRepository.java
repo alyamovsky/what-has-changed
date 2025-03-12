@@ -26,7 +26,7 @@ public interface SteamAppRepository extends JpaRepository<SteamApp, UUID> {
     void saveOrUpdate(@Param("app_id") Integer appId, @Param("name") String name);
 
     @Query("""
-            SELECT app FROM steam_apps app WHERE app.name ILIKE CONCAT('%', :namePart, '%')
+            SELECT app FROM steam_apps app WHERE app.name ILIKE CONCAT('%', :namePart, '%') ORDER BY app.appId
             """)
     List<SteamApp> findByNameContainingIgnoreCase(@Param("namePart") String namePart);
 }

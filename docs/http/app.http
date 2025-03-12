@@ -1,2 +1,5 @@
-### 123
+### Test endpoint
 GET localhost:8080/test
+
+### Search app by name
+GET localhost:8080/api/frontend/steam-apps?namePart=valheim

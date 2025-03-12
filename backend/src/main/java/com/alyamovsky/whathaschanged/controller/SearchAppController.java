@@ -13,10 +13,10 @@ import java.util.List;
 
 @RestController
 @Slf4j
-public class SearchController {
+public class SearchAppController {
     private final SteamAppRepository repository;
 
-    public SearchController(SteamAppRepository repository) {
+    public SearchAppController(SteamAppRepository repository) {
         this.repository = repository;
     }
 

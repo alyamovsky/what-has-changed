@@ -14,6 +14,7 @@ import java.util.Date;
 public class SteamApp {
     @Id
     @Column(name = "app_id", nullable = false)
+    @JsonView({Views.SearchResultApp.class})
     private Integer appId;
     @Column(name = "name", nullable = false)
     @JsonView({Views.SearchResultApp.class})
