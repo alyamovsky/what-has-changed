@@ -9,7 +9,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: true # todo: move to application-dev.yml
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -20,3 +19,5 @@ spring:
     interactive:
       enabled: true
 debug: true
+application:
+  ranking-url: ${STEAM_APP_RANKING_SOURCE_URL}
